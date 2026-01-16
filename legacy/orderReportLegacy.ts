@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as fs from 'fs';
 import * as path from 'path';
 
 // Constantes globales mal organisées
 const TAX = 0.2;
 const SHIPPING_LIMIT = 50;
-const SHIP = 5.0;
-const PREMIUM_THRESHOLD = 1000;
 const LOYALTY_RATIO = 0.01;
 const HANDLING_FEE = 2.5;
 const MAX_DISCOUNT = 200;
@@ -30,7 +30,6 @@ function run(): string {
     const customers: Record<string, Customer> = {};
     const custData = fs.readFileSync(custPath, 'utf-8');
     const custLines = custData.split('\n').filter(l => l.trim());
-    const custHeader = custLines[0].split(',');
     for (let i = 1; i < custLines.length; i++) {
         const parts = custLines[i].split(',');
         const id = parts[0];
@@ -139,7 +138,7 @@ function run(): string {
 
         // Récupération du produit avec fallback
         const prod = products[o.product_id] || {};
-        let basePrice = prod.price !== undefined ? prod.price : o.unit_price;
+        const basePrice = prod.price !== undefined ? prod.price : o.unit_price;
 
         // Application de la promo (logique complexe et bugguée)
         const promoCode = o.promo_code;

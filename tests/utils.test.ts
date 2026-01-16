@@ -1,4 +1,4 @@
-import { calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount, readCsv } from '../legacy/utils';
+import { calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from '../legacy/utils';
 import { Order, Customer } from '../legacy/types';
 
 describe('Utils functions', () => {
