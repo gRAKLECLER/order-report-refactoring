@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1768570095364" clover="3.2.0">
+  <project timestamp="1768570095364" name="All files">
+    <metrics statements="104" coveredstatements="85" conditionals="57" coveredconditionals="33" methods="17" coveredmethods="15" elements="178" coveredelements="133" complexity="0" loc="104" ncloc="104" packages="1" files="2" classes="2"/>
+    <file name="orderReportRefacto.ts" path="/Users/guillaumerak-lecler/Documents/ALT/js_ts/legacy/orderReportRefacto.ts">
+      <metrics statements="89" coveredstatements="70" conditionals="47" coveredconditionals="23" methods="11" coveredmethods="9"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+      <line num="61" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="62" count="0" type="stmt"/>
+      <line num="63" count="0" type="stmt"/>
+      <line num="76" count="2" type="stmt"/>
+      <line num="89" count="1" type="stmt"/>
+      <line num="90" count="1" type="stmt"/>
+      <line num="91" count="1" type="stmt"/>
+      <line num="92" count="1" type="stmt"/>
+      <line num="93" count="1" type="stmt"/>
+      <line num="94" count="1" type="stmt"/>
+      <line num="96" count="1" type="stmt"/>
+      <line num="97" count="1" type="stmt"/>
+      <line num="99" count="1" type="stmt"/>
+      <line num="100" count="2" type="stmt"/>
+      <line num="101" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="102" count="2" type="stmt"/>
+      <line num="104" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="105" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="106" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="107" count="0" type="stmt"/>
+      <line num="109" count="0" type="stmt"/>
+      <line num="113" count="2" type="stmt"/>
+      <line num="114" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="116" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="117" count="2" type="stmt"/>
+      <line num="118" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="119" count="2" type="stmt"/>
+      <line num="122" count="1" type="stmt"/>
+      <line num="124" count="1" type="stmt"/>
+      <line num="125" count="2" type="stmt"/>
+      <line num="126" count="2" type="stmt"/>
+      <line num="127" count="2" type="stmt"/>
+      <line num="128" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="130" count="2" type="stmt"/>
+      <line num="131" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="132" count="0" type="stmt"/>
+      <line num="133" count="0" type="stmt"/>
+      <line num="134" count="0" type="stmt"/>
+      <line num="135" count="0" type="stmt"/>
+      <line num="138" count="2" type="stmt"/>
+      <line num="140" count="2" type="stmt"/>
+      <line num="141" count="2" type="stmt"/>
+      <line num="142" count="2" type="stmt"/>
+      <line num="143" count="2" type="stmt"/>
+      <line num="144" count="2" type="cond" truecount="2" falsecount="1"/>
+      <line num="145" count="0" type="stmt"/>
+      <line num="146" count="0" type="stmt"/>
+      <line num="150" count="2" type="stmt"/>
+      <line num="151" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="152" count="2" type="stmt"/>
+      <line num="154" count="0" type="stmt"/>
+      <line num="155" count="0" type="stmt"/>
+      <line num="156" count="0" type="cond" truecount="0" falsecount="3"/>
+      <line num="157" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="158" count="0" type="stmt"/>
+      <line num="161" count="0" type="stmt"/>
+      <line num="165" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="166" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="168" count="2" type="stmt"/>
+      <line num="170" count="2" type="stmt"/>
+      <line num="171" count="2" type="stmt"/>
+      <line num="172" count="2" type="stmt"/>
+      <line num="173" count="2" type="stmt"/>
+      <line num="174" count="2" type="stmt"/>
+      <line num="175" count="2" type="stmt"/>
+      <line num="176" count="2" type="stmt"/>
+      <line num="177" count="2" type="stmt"/>
+      <line num="178" count="2" type="stmt"/>
+      <line num="179" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="180" count="2" type="stmt"/>
+      <line num="184" count="1" type="stmt"/>
+      <line num="185" count="1" type="stmt"/>
+      <line num="186" count="1" type="stmt"/>
+      <line num="190" count="1" type="cond" truecount="0" falsecount="1"/>
+      <line num="191" count="0" type="stmt"/>
+      <line num="194" count="1" type="stmt"/>
+    </file>
+    <file name="utils.ts" path="/Users/guillaumerak-lecler/Documents/ALT/js_ts/legacy/utils.ts">
+      <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
+      <line num="1" count="3" type="stmt"/>
+      <line num="6" count="5" type="stmt"/>
+      <line num="11" count="8" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="5" type="stmt"/>
+      <line num="22" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="23" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="24" count="3" type="stmt"/>
+      <line num="29" count="5" type="cond" truecount="3" falsecount="0"/>
+      <line num="30" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="31" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="37" count="3" type="stmt"/>
+    </file>
+  </project>
+</coverage>

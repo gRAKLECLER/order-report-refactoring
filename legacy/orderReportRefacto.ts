@@ -8,7 +8,7 @@ import type {
     ShippingZone
   } from './types';
 
-import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from './functions';  
+import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from './utils';  
 
 
 const TAX = 0.2;
