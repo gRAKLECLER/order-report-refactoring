@@ -25,13 +25,21 @@ import { Customer, Order } from './types';
   } 
 
 
- function volumeDiscount(sub: number, level: Customer['level']): number {
-    if (sub > 1000 && level === 'PREMIUM') return sub * 0.2;
-    if (sub > 500) return sub * 0.15;
-    if (sub > 100) return sub * 0.1;
-    if (sub > 50) return sub * 0.05;
-    return 0;
+  function volumeDiscount(sub: number, level: Customer['level'], firstOrderDate?: string): number {
+    let disc = 0;
+    if (sub > 1000 && level === 'PREMIUM') disc = sub * 0.2;
+    else if (sub > 500) disc = sub * 0.15;
+    else if (sub > 100) disc = sub * 0.1;
+    else if (sub > 50) disc = sub * 0.05;
+  
+    if (firstOrderDate) {
+      const day = new Date(firstOrderDate).getDay();
+      if (day === 0 || day === 6) disc *= 1.05;
+    }
+  
+    return disc;
   }
+  
 
 
  export { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount };

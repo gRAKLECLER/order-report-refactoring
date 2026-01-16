@@ -85,6 +85,31 @@ function loadOrders(file: string): Order[] {
   }));
 }
 
+function calculateShipping(sub: number, weight: number, zoneName: string, zones: Record<string, ShippingZone>) {
+    let ship = 0;
+    const zone = zones[zoneName] ?? { base: 5, perKg: 0.5 };
+  
+    if (sub < SHIPPING_LIMIT) {
+      if (weight > 10) {
+        ship = zone.base + (weight - 10) * zone.perKg;
+      } else if (weight > 5) {
+        ship = zone.base + (weight - 5) * 0.3;
+      } else {
+        ship = zone.base;
+      }
+  
+      if (zoneName === 'ZONE3' || zoneName === 'ZONE4') {
+        ship *= 1.2;
+      }
+    } else {
+      if (weight > 20) {
+        ship = (weight - 20) * 0.25;
+      }
+    }
+  
+    return ship;
+  }
+
 function run(): string {
   const base = __dirname;
   const customers = loadCustomers(path.join(base, 'data/customers.csv'));
@@ -124,7 +149,8 @@ function run(): string {
   for (const cid of Object.keys(totals).sort()) {
     const cust = customers[cid];
     const sub = totals[cid].subtotal;
-    let disc = volumeDiscount(sub, cust.level);
+    const firstOrderDate = totals[cid].items[0]?.date;
+    let disc = volumeDiscount(sub, cust.level, firstOrderDate);
     let loy = loyaltyDiscount(loyalty[cid] ?? 0);
 
     let totalDisc = disc + loy;
@@ -161,9 +187,7 @@ function run(): string {
       tax = Math.round(tax * 100) / 100;
     }
 
-
-    const zone = zones[cust.shippingZone] ?? { base: 5, perKg: 0.5 };
-    const ship = sub < SHIPPING_LIMIT ? zone.base + totals[cid].weight * zone.perKg : 0;
+    const ship = calculateShipping(sub, totals[cid].weight, cust.shippingZone, zones);
 
     const total = Math.round((taxable + tax + ship) * 100) / 100;
 
