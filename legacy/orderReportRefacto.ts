@@ -8,22 +8,13 @@ import type {
     ShippingZone
   } from './types';
 
+import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from './functions';  
+
 
 const TAX = 0.2;
 const SHIPPING_LIMIT = 50;
 const LOYALTY_RATIO = 0.01;
-const HANDLING_FEE = 2.5;
 const MAX_DISCOUNT = 200;
-
-function readCsv<T>(filePath: string, mapper: (row: string[]) => T): T[] {
-  return fs
-    .readFileSync(filePath, 'utf-8')
-    .split('\n')
-    .slice(1)
-    .filter(Boolean)
-    .map(line => mapper(line.split(',')));
-}
-
 
 function loadCustomers(file: string): Record<string, Customer> {
   return Object.fromEntries(
@@ -94,28 +85,6 @@ function loadOrders(file: string): Order[] {
   }));
 }
 
-
-function calculateLoyaltyPoints(orders: Order[]): Record<string, number> {
-  return orders.reduce((acc, o) => {
-    acc[o.customerId] = (acc[o.customerId] ?? 0) + o.qty * o.unitPrice * LOYALTY_RATIO;
-    return acc;
-  }, {} as Record<string, number>);
-}
-
-function volumeDiscount(sub: number, level: string): number {
-  if (sub > 1000 && level === 'PREMIUM') return sub * 0.2;
-  if (sub > 500) return sub * 0.15;
-  if (sub > 100) return sub * 0.1;
-  if (sub > 50) return sub * 0.05;
-  return 0;
-}
-
-function loyaltyDiscount(points: number): number {
-  if (points > 500) return Math.min(points * 0.15, 100);
-  if (points > 100) return Math.min(points * 0.1, 50);
-  return 0;
-}
-
 function run(): string {
   const base = __dirname;
   const customers = loadCustomers(path.join(base, 'data/customers.csv'));
@@ -124,7 +93,7 @@ function run(): string {
   const promotions = loadPromotions(path.join(base, 'data/promotions.csv'));
   const orders = loadOrders(path.join(base, 'data/orders.csv'));
 
-  const loyalty = calculateLoyaltyPoints(orders);
+  const loyalty = calculateLoyaltyPoints(orders, LOYALTY_RATIO);
   const totals: Record<string, any> = {};
 
   for (const o of orders) {

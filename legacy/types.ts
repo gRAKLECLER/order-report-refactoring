@@ -1,4 +1,4 @@
-export type Customer = {
+ type Customer = {
   id: string;
   name: string;
   level: 'BASIC' | 'PREMIUM';
@@ -6,7 +6,7 @@ export type Customer = {
   currency: 'EUR' | 'USD' | 'GBP';
 };
 
-export type Order = {
+ type Order = {
   id: string;
   customerId: string;
   productId: string;
@@ -17,24 +17,23 @@ export type Order = {
   promoCode?: string;
 };
 
-export type Product = {
+ type Product = {
   id: string;
   price: number;
   weight: number;
   taxable: boolean;
 };
 
-export type Promotion = {
+ type Promotion = {
   code: string;
   type: 'PERCENTAGE' | 'FIXED';
   value: number;
   active: boolean;
 };
 
-export type ShippingZone = {
+ type ShippingZone = {
   base: number;
   perKg: number;
 };
 
-/* ⬇️ LIGNE CRITIQUE */
-export {};
+export { Order, Product, Promotion, Customer, ShippingZone};
