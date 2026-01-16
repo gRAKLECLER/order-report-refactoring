@@ -8,7 +8,7 @@ import type {
     ShippingZone
   } from './types';
 
-import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from './utils';  
+import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount, calculateShipping } from './utils';  
 
 
 const TAX = 0.2;
@@ -84,31 +84,6 @@ function loadOrders(file: string): Order[] {
     time: time || '12:00'
   }));
 }
-
-function calculateShipping(sub: number, weight: number, zoneName: string, zones: Record<string, ShippingZone>) {
-    let ship = 0;
-    const zone = zones[zoneName] ?? { base: 5, perKg: 0.5 };
-  
-    if (sub < SHIPPING_LIMIT) {
-      if (weight > 10) {
-        ship = zone.base + (weight - 10) * zone.perKg;
-      } else if (weight > 5) {
-        ship = zone.base + (weight - 5) * 0.3;
-      } else {
-        ship = zone.base;
-      }
-  
-      if (zoneName === 'ZONE3' || zoneName === 'ZONE4') {
-        ship *= 1.2;
-      }
-    } else {
-      if (weight > 20) {
-        ship = (weight - 20) * 0.25;
-      }
-    }
-  
-    return ship;
-  }
 
 function run(): string {
   const base = __dirname;
@@ -187,7 +162,7 @@ function run(): string {
       tax = Math.round(tax * 100) / 100;
     }
 
-    const ship = calculateShipping(sub, totals[cid].weight, cust.shippingZone, zones);
+    const ship = calculateShipping(sub, totals[cid].weight, cust.shippingZone, zones, SHIPPING_LIMIT);
 
     const total = Math.round((taxable + tax + ship) * 100) / 100;
 

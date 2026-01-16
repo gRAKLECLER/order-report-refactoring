@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.52% </span>
+                <span class="strong">95.65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>94/105</span>
+                <span class='fraction'>88/92</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.81% </span>
+                <span class="strong">69.76% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>34/55</span>
+                <span class='fraction'>30/43</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.21% </span>
+                <span class="strong">95.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>91/102</span>
+                <span class='fraction'>85/89</span>
             </div>
         
             
@@ -256,32 +256,7 @@
 <a name='L191'></a><a href='#L191'>191</a>
 <a name='L192'></a><a href='#L192'>192</a>
 <a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a>
-<a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a>
-<a name='L213'></a><a href='#L213'>213</a>
-<a name='L214'></a><a href='#L214'>214</a>
-<a name='L215'></a><a href='#L215'>215</a>
-<a name='L216'></a><a href='#L216'>216</a>
-<a name='L217'></a><a href='#L217'>217</a>
-<a name='L218'></a><a href='#L218'>218</a>
-<a name='L219'></a><a href='#L219'>219</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -366,31 +341,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -509,7 +459,7 @@ import type {
     ShippingZone
   } from './types';
 &nbsp;
-import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount } from './utils';  
+import { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount, calculateShipping } from './utils';  
 &nbsp;
 &nbsp;
 const TAX = 0.2;
@@ -585,31 +535,6 @@ function loadOrders(file: string): Order[] {
     time: time || <span class="branch-1 cbranch-no" title="branch not covered" >'12:00'</span>
   }));
 }
-&nbsp;
-function calculateShipping(sub: number, weight: number, zoneName: string, zones: Record&lt;string, ShippingZone&gt;) {
-    let ship = 0;
-    const zone = zones[zoneName] ?? { base: 5, perKg: 0.5 };
-  
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (sub &lt; SHIPPING_LIMIT) {
-<span class="cstat-no" title="statement not covered" >      if (weight &gt; 10) {</span>
-<span class="cstat-no" title="statement not covered" >        ship = zone.base + (weight - 10) * zone.perKg;</span>
-      } else <span class="cstat-no" title="statement not covered" >if (weight &gt; 5) {</span>
-<span class="cstat-no" title="statement not covered" >        ship = zone.base + (weight - 5) * 0.3;</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        ship = zone.base;</span>
-      }
-  
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (zoneName === 'ZONE3' || zoneName === 'ZONE4') {</span>
-<span class="cstat-no" title="statement not covered" >        ship *= 1.2;</span>
-      }
-    } else {
-      if (weight &gt; 20) {
-        ship = (weight - 20) * 0.25;
-      }
-    }
-  
-    return ship;
-  }
 &nbsp;
 function run(): string {
   const base = __dirname;
@@ -688,7 +613,7 @@ function run(): string {
       tax = Math.round(tax * 100) / 100;
     }
 &nbsp;
-    const ship = calculateShipping(sub, totals[cid].weight, cust.shippingZone, zones);
+    const ship = calculateShipping(sub, totals[cid].weight, cust.shippingZone, zones, SHIPPING_LIMIT);
 &nbsp;
     const total = Math.round((taxable + tax + ship) * 100) / 100;
 &nbsp;
@@ -724,7 +649,7 @@ export { run };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-16T15:06:04.710Z
+                at 2026-01-16T15:37:30.544Z
             </div>
         <script src="prettify.js"></script>
         <script>

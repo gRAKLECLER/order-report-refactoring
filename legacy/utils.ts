@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Customer, Order } from './types';
+import { Customer, Order, ShippingZone } from './types';
 
 
  function readCsv<T>(filePath: string, mapper: (row: string[]) => T): T[] {
@@ -39,8 +39,33 @@ import { Customer, Order } from './types';
   
     return disc;
   }
+
+  function calculateShipping(sub: number, weight: number, zoneName: string, zones: Record<string, ShippingZone>, shippingLimite: number) {
+    let ship = 0;
+    const zone = zones[zoneName] ?? { base: 5, perKg: 0.5 };
+  
+    if (sub < shippingLimite) {
+      if (weight > 10) {
+        ship = zone.base + (weight - 10) * zone.perKg;
+      } else if (weight > 5) {
+        ship = zone.base + (weight - 5) * 0.3;
+      } else {
+        ship = zone.base;
+      }
+  
+      if (zoneName === 'ZONE3' || zoneName === 'ZONE4') {
+        ship *= 1.2;
+      }
+    } else {
+      if (weight > 20) {
+        ship = (weight - 20) * 0.25;
+      }
+    }
+  
+    return ship;
+  }
   
 
 
- export { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount };
+ export { readCsv, calculateLoyaltyPoints, loyaltyDiscount, volumeDiscount, calculateShipping };
   
